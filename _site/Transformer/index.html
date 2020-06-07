@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Transformer (Self Attention) - Manu Vishwakarma</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Manu Vishwakarma" property="og:site_name">
+  
+    <meta content="Transformer (Self Attention)" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes." property="og:description">
+  
+  
+    <meta content="http://localhost:4000/Transformer/" property="og:url">
+  
+  
+    <meta content="2019-12-21T02:30:00+05:30" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/manu-vishwakarma/assets/img/transformer_thumb2.jpg" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="Transformer" property="article:tag">
+    
+    <meta content="Machine Learning" property="article:tag">
+    
+    <meta content="Data Science" property="article:tag">
+    
+    <meta content="NLP" property="article:tag">
+    
+  
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Transformer (Self Attention)">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/Transformer/">
+  
+  
+    <meta name="twitter:description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/manu-vishwakarma/assets/img/transformer_thumb2.jpg">
+  
+
+	<meta name="description" content="You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/manu-vishwakarma/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/manu-vishwakarma/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/manu-vishwakarma/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/manu-vishwakarma/assets/img/favicon/apple-touch-icon-144x144.png">
+  
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/manu-vishwakarma/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/manu-vishwakarma/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/manu-vishwakarma/"><img src="/manu-vishwakarma/assets/img/manu_vishwakarma_profile_pic.jpg" alt="Manu Vishwakarma"></a>
+      </div>
+      <div class="author-name">Manu Vishwakarma</div>
+      <p align=”justify” style = "font-size:15px">DL/NLP/ML enthusiast. I like exploring new technology & algorithms in the field of Data Science for solving real world business problem.</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+          <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        
+        
+          <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        
+        
+          <li class="github"><a href="http://github.com/manu-vishwakarma" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/manu-vishwakarma-9040a2b4" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:vishwakarma.manu28@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2020 &copy; Manu Vishwakarma</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/manu-vishwakarma/assets/img/transformer_thumb2.jpg alt="Transformer (Self Attention)">
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Transformer (Self Attention)</h1>
+        <div class="page-date"><span>2019, Dec 21&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+      </script>
+
+      <p class="text-justify">Whenever long-term dependencies (natural language processing problems) are involved, we know that RNNs (even with hacks like bidirectional, multi-layer, memory-based gates — LSTMs/GRUs) suffer from vanishing gradient problem. Also, they handle the sequence of inputs 1 by 1 or word by word this resulting in an obstacle towards parallelization of the process. Especially when it comes to seq2seq models, is one hidden state enough to capture global information about the translation? To solve this type of issue we use the Attention mechanism along with the seq2seq model. The below figure represents the conventional encoder-decoder model architecture.</p>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t1.png" alt="transormer_attention_mechanism" /></p>
+
+<p><br /><br /></p>
+<p align="center"><u><a href="https://towardsdatascience.com/understanding-encoder-decoder-sequence-to-sequence-model-679e04af4346">Encoder-Decoder architecture</a></u></p>
+<p><br /></p>
+
+<p>Now let’s try to interpret the Attention mechanism.</p>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t2.png" alt="transormer_attention_mechanism" /></p>
+
+<p><br /></p>
+<p align="center">Encoder-Decoder With Attention Mechanism <a href="https://arxiv.org/pdf/1409.0473.pdf">Layer Bahdanau et al., 2015.</a></p>
+<p class="text-justify"><br />
+The main idea here is to learn a context vector <script type="math/tex">c_i</script>, which gives us global level information on all the inputs and tells us about the most important information. For eg. In the case of the machine translation task, let’s say if we are translating from french to the English language then this context vector tells us which words from the input text to pay attention to or tells us the importance of each word from the context window while generating the current English output word. Following is the mathematical representation of the attention layer.</p>
+
+<p>The context vector <script type="math/tex">c_i</script>  is computed as a weighted sum of all the inputs. <br /></p>
+
+<script type="math/tex; mode=display">c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j</script>
+
+<p>The weight of <script type="math/tex">\alpha_{ij}</script> is computed using:<br /></p>
+
+<script type="math/tex; mode=display">\alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})}</script>
+
+<p>S.T. <br /></p>
+<p align="center"> $$\alpha_{ij} &gt;= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$</p>
+
+<p>Where,</p>
+
+<script type="math/tex; mode=display">e_{ij} = a(s_{i-1}, h_j)</script>
+
+<p>function <script type="math/tex">a</script> is a simple 1 layer feed-forward neural network.</p>
+
+<p class="text-justify">The attention mechanism solves the problem of the long term dependencies by allowing the decoder to “look-back” at the encoder’s hidden states based on its current state. This allows the decoder to extract only relevant information about the input tokens at each decoding, thus learning more complicated dependencies between the input and the output.</p>
+
+<p class="text-justify">The following graph is the BLUE score comparison between the attention model vs the conventional encoder-decoder model. As we can observe, with the attention layer even after the word limit exceeded above 30 or 50 words performance of the model did not drop compared to the rest of the model.</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t3.png" alt="transormer_attention_mechanism" /></p>
+
+<p align="center">BLEU Score Comparison</p>
+<pre align="center"><b>RNNseach: </b>Encoder-decoder model with attention layer.
+ <b>RNNenc: </b>Encoder-Decoder model without attention layer.</pre>
+
+<h1 id="but-why-do-we-need-the-transformer">But, Why do we need the Transformer?</h1>
+<p class="text-justify">RNN based encoder-decoder models work quite well for the shorter length sequences and to handle long term dependencies we can add the attention layer. But these models are very hard to parallelize. Because to generate the output sequence first we need to generate the context vectors which are generated from the input sequence and these inputs sequences are fed to the encoder part of the model one by one not all at once. In a way, the RNN based model creates heavy dependencies on the previous inputs because of which it becomes very hard to process them parallelly.</p>
+
+<p class="text-justify">In the Transformer architecture of the encoder part, all the input sequences are fed all at once instead of ingesting them one by one. We’ll discuss this in more detail later.</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t4.png" alt="transormer_attention_mechanism" /></p>
+
+<p align="center"></p>
+<p class="text-justify">To solve this problem of RNN based model people also tried CNN based models, which are very trivial to parallelize and they also fit the intuition that most dependencies are local. The reason why Convolutional Neural Networks can work in parallel is that each word on the input can be processed at the same time and does not necessarily depend on the previous words to be translated. Not only that, but the “distance” between the output word and any input for a CNN is in the order of log(N) — that is the size of the height of the tree generated from the output to the input (ref below figure). Which is much better than the distance of the output of an RNN and input, which is on the order of N.</p>
+
+<p><br /></p>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t5.gif" alt="transormer_attention_mechanism" /></p>
+<p align="center"><a href="https://deepmind.com/blog/wavenet-generative-model-raw-audio/">WaveNet Structure For CNN</a></p>
+
+<p class="text-justify">But the Convolutional Neural Networks does not necessarily help with the problem of figuring out the dependencies when translating sentences. That’s why Transformers were created, as they are a combination of CNNs with attention.</p>
+
+<p><b>Time complexity<b></b></b></p>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t6.png" alt="transormer_attention_mechanism" /></p>
+<h1 id="advantages-of-transformers-over-cnn-and-rnn-model">Advantages of Transformers over CNN and RNN model</h1>
+<ul class="text-justify">
+  <li><b>Parallelization of Seq2Seq:</b> RNN/CNN handle sequences word-by-word sequentially which is an obstacle to parallelize. Transformer achieves parallelization by replacing recurrence with attention and encoding the symbol position in the sequence. This, in turn, leads to significantly shorter training time.</li>
+</ul>
+<ul class="text-justify">
+  <li><b>Reduce sequential computation:</b> Constant O(1) number of operations to learn dependency between two symbols independently of their position distance in sequence.</li>
+</ul>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t7.png" alt="transormer_attention_mechanism" /></p>
+<p align="center"><a href="https://arxiv.org/pdf/1706.03762.pdf">Transformer Architecture</a></p>
+
+<h1 id="encoder-and-decoder-stacks-in-attention-is-all-you-need-as-per-the-paper">Encoder and Decoder Stacks in Attention is all you need (As per the paper)</h1>
+<p class="text-justify"><b><u>Encoder</u></b><br /> 
+The encoder is composed of a stack of N=6 identical layers. Each layer has two sub-layers. The first is a multi-head self- attention mechanism, and the second is a simple, position-wise fully connected feed-forward network. We employ a residual connection around each of the two sub-layers, followed by layer normalization. That is, the output of each sub-layer is LayerNorm(x+ Sub layer(x)), where Sub layer(x)is the function implemented by the sub-layer itself. To facilitate these residual connections, all sub-layers in the model, as well as the embedding layers, produce outputs of dimension = 512.</p>
+<p class="text-justify"><b><u>Decoder</u></b><br />
+The decoder is also composed of a stack of N= 6 identical layers. In addition to the two sub-layers in each encoder layer, the decoder inserts a third sub-layer, which performs multi-head attention over the output of the encoder stack. Similar to the encoder, we employ residual connections around each of the sub-layers, followed by layer normalization. We also modify the self-attention sub-layer in the decoder stack to prevent positions from attending to subsequent positions. This masking, combined with the fact that the output embeddings are offset by one position, ensures that the predictions for position i can depend only on the known outputs at positions less than i.</p>
+
+<h1 id="in-general-we-can-think-of-encode-decoder-architecture-as">In General we can think of Encode-Decoder architecture as</h1>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t8.png" alt="transormer_attention_mechanism" /></p>
+
+<p class="text-justify">In general, all the encoders are very similar with the same architecture in which there are two layers: Self-attention and a Feed Forward Neural Network. Individual encoder-decoder architecture is shown below:</p>
+<ul class="text-justify">
+  <li>The encoder’s inputs first flow through a self-attention layer. It helps the encoder look at other words in the input sentence as it encodes a specific word.</li>
+</ul>
+<ul class="text-justify">
+  <li>The decoder includes self-attention and feed-forward neural network with an attention layer between them that helps the decoder to focus on relevant parts of the input sentence.</li>
+</ul>
+
+<!-- * The decoder has both those layers, but between them is an attention layer that helps the decoder focus on relevant parts of the input sentence. -->
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t9.png" alt="transormer_attention_mechanism" /></p>
+<!-- <p align="center">Encoder-Decoder</p>
+ -->
+<h1 id="self-attention-as-per-the-paper">Self Attention (As per the paper)<br /></h1>
+<p class="text-justify">An attention function can be described as mapping a query and a set of key-value pairs to an output, where the query, keys, values, and output are all vectors. The output is computed as a weighted sum of the values, where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t10.png" alt="transormer_attention_mechanism" /></p>
+<p align="center"><a href="https://arxiv.org/pdf/1706.03762.pdf">(left) Scaled Dot-Product Attention. <br /> (right) Multi-Head Attention consists of several attention layers running in parallel.</a></p>
+
+<p class="text-justify">Instead of performing a single attention function with <script type="math/tex">d_{model}</script>-dimensional keys, values, and queries, we found it beneficial to linearly project the queries, keys, and values <script type="math/tex">h</script> times with different learned linear projections to <script type="math/tex">d_k</script>, <script type="math/tex">d_k</script> and <script type="math/tex">d_v</script> dimensions, respectively. On each qkv of these projected versions of queries, keys, and values we then perform the attention function in parallel, yielding d dimensional output v values. These are concatenated and once again projected, resulting in the final values, multi-head attention allows the model to jointly attend to information from different represent at ion subspaces at different positions. With a single attention head, averaging inhibits this, as depicted in below Figure:</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t10_1.png" alt="transormer_attention_mechanism" /></p>
+
+<p>In this work, <script type="math/tex">h= 8</script> parallel attention layers, or heads. For each of these we use <script type="math/tex">d_k = d_v =d_{model} / h = 64</script> . Due to the reduced dimension of each head, the total computational cost is similar to that of single-head attention with full dimensionality.</p>
+
+<h1 id="demystifying-self-attention">Demystifying self-attention</h1>
+<ul>
+  <li>The input to the self-attention layer is nothing but the word embeddings of 512 dimensions. This embedding happens for only the bottom-most encoder because the self-attention layer creates its representation of the word embeddings as shown below:</li>
+</ul>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/11.png" alt="transormer_attention_mechanism" /></p>
+<ul>
+  <li>For the first encoder input will be word embeddings and output is fed as input to the next encoder. 
+<!-- .After embedding the words in our input sequence, each of them flows through each of the two layers of the encoder.  --></li>
+  <li>In the above encoder architecture as you can see each input is flowing through its path, but they have their dependencies in the self-attention layer. Whereas the feed-forward network part has no such dependencies, because of which several paths can be executed in parallel while going through the feed-forward network.</li>
+</ul>
+
+<h1 id="following-calculation-steps-are-followed-in-the-self-attention-layer">Following calculation steps are followed in the self-attention layer:</h1>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t12.png" alt="transormer_attention_mechanism" /></p>
+<ul class="text-justify">
+  <li>We create vectors query(q), key(k) and value(v) by multiplying input vectors with matrices Wq, Wk and Wv respectively and these matrices are updated during the training process and these vectors are of smaller dimension (dim=64) as compared to input embeddings dimension (dim=512).</li>
+</ul>
+
+<ul class="text-justify">
+  <li>From the computed query (q) and key (k) vectors, we compute a score by performing dot product between two vectors. This score represents the importance of each word w.r.t. The targeted word (word1=” Thinking”). We do this task for every input token as shown in the below figure.</li>
+</ul>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t13.png" alt="transormer_attention_mechanism" /></p>
+
+<ul class="text-justify">
+  <li>In the next step we divide the scores by 8 (square root of the dim=64, it’s the default score as per the paper),  then we pass the normalized score to softmax to generate output between 0 to 1. So that we can represent the percentage of attention that each token contributes w.r.t. to the targeted word. As we can see in the above figure. the targeted words softmax score will be very high as compared to the rest of the words.</li>
+</ul>
+
+<!--  but sometimes it’s useful to attend to another word that is relevant to the current word. -->
+
+<ul class="text-justify">
+  <li>Now we multiply each value vector (v) by the softmax score and we add all the values vectors to generate vector z. The idea here is to keep the value of the targeted word and the words we want to focus on, by performing a summation of the value(v) vectors. In this, the irrelevant words vector will have little impact on the z score calculation and the more relevant words and the current word will have a much greater impact on the Z score at the end.</li>
+</ul>
+
+<p><b><u>Decoder</u></b><br /></p>
+<ul class="text-justify">
+  <li>From the top encoder’s output we get the representations of each of the tokens and the output representations are used to generate  <script type="math/tex">K_{encdec}</script>  and <script type="math/tex">V_{encdec}</script> . These matrices are computed by multiplying them with Wk and Wv respectively. The attention vector <script type="math/tex">K_{encdec}</script>   and  <script type="math/tex">V_{encdec}</script> is fed to each decoder block’s “encoder-decoder attention” layer to pay attention to the input sequence while generating the current output token. Now, let’s try to understand the decoder stack architecture.</li>
+</ul>
+
+<ul class="text-justify">
+  <li>Architecture of decoder block is quite similar to an encoder with one Masked self-attention layer and the feed-forward network layer. Apart from these two layers it also has one more encoder-decoder attention layer in between them. Lets now understand each layer one by one.</li>
+</ul>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t14.gif" alt="transormer_attention_mechanism" /></p>
+
+<ul class="text-justify">
+  <li>Similar to the encoder’s input, we embed and add positional encoding to the decoder inputs.</li>
+  <li>In the First masked self-attention layer, the decoder pays attention to the only previous position in the output sequence, because we generate the output sequence one by one in the decoder stack. So we have only previous output tokens to focus on and we also mask the future output positions by -inf.</li>
+</ul>
+
+<ul class="text-justify">
+  <li>In the encoder-decoder attention layer, We take query vector Q from the previous layer and use vectors <script type="math/tex">K_{encdec}</script>   and  <script type="math/tex">V_{encdec}</script> generated from the output of the top encoder to complete the whole attention mechanism computation and to generate each tokens representation.</li>
+</ul>
+
+<ul class="text-justify">
+  <li>Now, the generated representations are fed to the feed-forward network. So the output of the last decoder block is ingested into a linear softmax layer which generates the output and the output is again used as one of the inputs to the decoder to generate the next token words and the process repeats until the special token symbol does not appear.</li>
+</ul>
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t15.gif" alt="transormer_attention_mechanism" /></p>
+
+<h2 id="multi-head-attention">Multi-Head Attention</h2>
+<p class="text-justify">Multi-head attention is nothing but performing the self-attention calculation multiple times (eight times) with just different weight matrices Wq, Wk &amp; Wv. With this, we will end up with multiple Z values (eight).</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t16.png" alt="transormer_attention_mechanism" /></p>
+
+<p class="text-justify">Now that we’ve eight different vectors for Z, but as we have seen in the architecture that we get one representation per tokens as the end output of the encoder. So to get a single vector as the output <script type="math/tex">z</script>, we concatenate all the eight different <script type="math/tex">z</script> vectors and then we multiply it by a weight matrix <script type="math/tex">W_0</script> Which also gets updated during the model training process.</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t17.png" alt="transormer_attention_mechanism" /></p>
+
+<p>The below figure shows the entire process of the multi-head attention layer.
+<!-- So to put everything together the entire process of multi-head attention layer will look like the following fig:
+ --></p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t18.png" alt="transormer_attention_mechanism" /></p>
+<p class="text-justify">As we have seen that the Multi-Head Attention is just several attention layers stacked in parallel, with different linear transformations of the same input. So that model can visualize other parts of a sentence when processing or translating a given word, it gains insights into how information travels through the network. Visualizing what words the encoder attended to when computing the final representation for the word “it” sheds some light on how the network made the decision. In its 5th step, the Transformer relates the word “it” with two nouns “animal” and “street”. Both words could relate to the word “it” in a different context. But the word  “it” relates to “animal” more than “street” in the left sentence figure, but in the right sentence “it” clearly relates with the word “street” more. The transformer learns all these differences in the next layer.</p>
+
+<p style="text-align: center;"><img src="/manu-vishwakarma/assets/img/t19.png" alt="transormer_attention_mechanism" /></p>
+
+<h1 id="conclusion-and-further-readings">Conclusion and Further Readings</h1>
+<p class="text-justify">This blog demonstrates that self-attention is a powerful and efficient way to replace RNN as a method of modeling dependencies. I highly recommend you to read the actual paper for further details on the hyperparameters and training settings that were necessary to achieve state-of-the-art results.</p>
+
+<h1 id="references">References</h1>
+<ul>
+  <li><a href="https://arxiv.org/pdf/1706.03762.pdf"> Attention Is All You Need</a> 
+ <br /></li>
+  <li><a href="http://jalammar.github.io/illustrated-transformer/"> The Illustrated Transformer</a>
+ <br /></li>
+  <li><a href="https://towardsdatascience.com/transformers-141e32e69591"> How Transformers work</a> 
+ <br /></li>
+  <li><a href="https://medium.com/@adityathiruvengadam/transformer-architecture-attention-is-allyou-need-aeccd9f50d09">Transformer Architecture</a>
+ <br /></li>
+  <li><a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audioWaveNet"> A Generative Model for Raw Audio</a></li>
+</ul>
+
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Transformer (Self Attention)&url=http://localhost:4000/Transformer/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/Transformer/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/Transformer/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/manu-vishwakarma/tags#Transformer" class="tag">&#35; Transformer</a>
+          
+            <a href="/manu-vishwakarma/tags#Machine Learning" class="tag">&#35; Machine Learning</a>
+          
+            <a href="/manu-vishwakarma/tags#Data Science" class="tag">&#35; Data Science</a>
+          
+            <a href="/manu-vishwakarma/tags#NLP" class="tag">&#35; NLP</a>
+          
+        </div>
+      </div>
+      <!-- <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//manu_vishwakarma_28.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> 
+<div id="disqus_thread"></div>
+<script> -->
+
+  <div id="disqus_thread"></div>
+  <script>
+  
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://manu-vishwakarma.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                              
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

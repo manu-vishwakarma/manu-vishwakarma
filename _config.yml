@@ -1,0 +1,37 @@
+title: Manu Vishwakarma
+description: # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+permalink: ':title/'
+baseurl: "/manu-vishwakarma" #"/flexible-jekyll" 
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter: #if your site has a twitter account, enter it here
+
+# Author Settings
+author: Manu Vishwakarma # add your name
+author-img: manu_vishwakarma_profile_pic.jpg # add your photo
+about-author: DL/NLP/ML enthusiast. I like exploring new technology & algorithms in the field of Data Science for solving real world business problem. 
+# social-twitter: # add your Twitter handle
+# social-facebook: # add your Facebook handle
+social-github: manu-vishwakarma # add your Github handle
+social-linkedin: manu-vishwakarma-9040a2b4 # add your Linkedin handle
+social-email: vishwakarma.manu28@gmail.com # add your Email address
+
+# Disqus
+discus-identifier: manu_vishwakarma_28 # mr-brown # add your discus identifier
+
+# Tracker
+analytics: # Google Analytics
+
+# Build Settings
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 8
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
