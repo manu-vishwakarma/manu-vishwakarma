@@ -113,7 +113,6 @@ The decoder is also composed of a stack of N= 6 identical layers. In addition to
 {: refdef}
 <br>
 <p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Encoder-Decoder Overview</a></p>
-</br>
 
 In general, all the encoders are very similar with the same architecture in which there are two layers: Self-attention and a Feed Forward Neural Network. Individual encoder-decoder architecture is shown below:
 {: .text-justify}
@@ -176,7 +175,7 @@ In this work, $$h= 8$$ parallel attention layers, or heads. For each of these we
 {: refdef}
 <br>
 <p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Encoder-Decoder Overview</a></p>
-</br>
+
 * In the next step we divide the scores by 8 (square root of the dim=64, it's the default score as per the paper),  then we pass the normalized score to softmax to generate output between 0 to 1. So that we can represent the percentage of attention that each token contributes w.r.t. to the targeted word. As we can see in the above figure. the targeted words softmax score will be very high as compared to the rest of the words.
 {: .text-justify}
 
