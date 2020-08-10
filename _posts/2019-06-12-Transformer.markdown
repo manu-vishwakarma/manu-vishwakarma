@@ -242,7 +242,7 @@ As we have seen that the Multi-Head Attention is just several attention layers s
 {: refdef}
 
 # Conclusion and Further Readings
-This blog demonstrates that self-attention is a powerful and efficient way to replace RNN as a method of modeling dependencies. I highly recommend you to read the actual paper for further details on the hyperparameters and training settings that were necessary to achieve state-of-the-art results.
+This blog demonstrates that self-attention is a powerful and efficient way to replace RNN as a method of modeling dependencies. I highly recommend you to read the actual paper for further details on the hyperparameters and training settings that were necessary to achieve state-of-the-art results and also you can read Jay Alammar blog on <a href="http://jalammar.github.io/illustrated-transformer/"> The Illustrated Transformer</a>.
 {: .text-justify}
 
 # References
