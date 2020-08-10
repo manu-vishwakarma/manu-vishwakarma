@@ -29,18 +29,18 @@ The main idea here is to learn a context vector $$c_i$$, which gives us global l
 {: .text-justify}
 
 The context vector $$c_i$$  is computed as a weighted sum of all the inputs. <br>
-<p align="center">$$c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j$$</p>
+<p align="center"> $$c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j$$ </p>
 
 The weight of $$\alpha_{ij}$$ is computed using:
 <br>
-<p align="center">$$\alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})}$$</p>
+<p align="center"> $$\alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})}$$ </p>
 
-S.T. <br>
-<p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$</p>
+S.T.
+<p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$ </p>
 
 Where,
 <br>
-<p align="center">$$e_{ij} = a(s_{i-1}, h_j)$$</p>
+<p align="center"> $$e_{ij} = a(s_{i-1}, h_j)$$ </p>
 
 function $$a$$ is a simple 1 layer feed-forward neural network.
 
