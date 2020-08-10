@@ -37,9 +37,7 @@ The weight of $$\alpha_{ij}$$ is computed using:
 
 S.T.
 <p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$ </p>
-
 Where,
-<br>
 <p align="center"> $$e_{ij} = a(s_{i-1}, h_j)$$ </p>
 
 function $$a$$ is a simple 1 layer feed-forward neural network.
