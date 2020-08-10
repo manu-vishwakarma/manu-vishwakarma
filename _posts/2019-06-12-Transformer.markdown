@@ -30,18 +30,18 @@ The main idea here is to learn a context vector $$c_i$$, which gives us global l
 
 The context vector $$c_i$$  is computed as a weighted sum of all the inputs. <br>
 
-$$ c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j $$
+$$c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j$$
 
 The weight of $$\alpha_{ij}$$ is computed using:<br>
 
-$$ \alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})} $$
+$$\alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})}$$
 
 S.T. <br>
 <p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$</p>
 
 Where,
 
-$$ e_{ij} = a(s_{i-1}, h_j)$$
+$$e_{ij} = a(s_{i-1}, h_j)$$
 
 function $$a$$ is a simple 1 layer feed-forward neural network.
 
