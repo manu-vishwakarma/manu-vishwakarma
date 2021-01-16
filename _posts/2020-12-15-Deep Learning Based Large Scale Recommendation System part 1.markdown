@@ -77,29 +77,17 @@ Our main objective is to learn the user-context and each content's embedding. Th
 ### **Input Features:**
 
 * **Last 50 watched content:** One hot encoded vector of size equals to num of content considered for training e.g., 1 million in case of YouTube. 
-
 * **Last 50 search query:** One hot encoded vector of size equals to total number of unique words found in training. 
-
 * **Demographic information (Location):** Location information of user to push more regional or suitable content to user. This will be one hot vectors of size equals to number of locations that are available to us in the form of circle. This feature will also help us to generate candidates for new users. 
-
 * **Contents Age:** Content’s freshness relative to the training time, idea is to promote fresh content in case of short videos. Single valued feature between 0 and 1. 
-
 * **DEVICE_TYPE:** Device through which user consume the content information. One hot vector of may be 5 or 7 length depending upon the number of unique device type we have. 
-
 * **LANGUAGE:** Preferred language of user, again one hot vector. 
-
 * **USER AGE:** Age information of user to push related content such as 18+ content. Single valued feature. 
-
 * **Logged in state:** User is whether logged in or not. (binary feature) 
-
 * **User Gender:** One hot vector based upon number of unique gender information. 
-
 * Other features describing **user's behavior**. 
-
 * Other features describing **item's behavior**. 
-
 <br>
- 
 
 ## **Training Phase:**
 
