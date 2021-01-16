@@ -29,19 +29,16 @@ The main idea here is to learn a context vector $$c_i$$, which gives us global l
 {: .text-justify}
 
 The context vector $$c_i$$  is computed as a weighted sum of all the inputs. <br>
+<p align="center"> $$c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j$$ </p>
 
-$$ c_i = \sum_{j=1}^{Tx} \alpha_{ij} h_j $$
+The weight of $$\alpha_{ij}$$ is computed using:
+<br>
+<p align="center"> $$\alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})}$$ </p>
 
-The weight of $$\alpha_{ij}$$ is computed using:<br>
-
-$$ \alpha_{i_j} = \frac{exp(e_{ij})}{\sum_{k=1}^{Tx} exp(e_{ik})} $$
-
-S.T. <br>
-<p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$</p>
-
+S.T.
+<p align="center"> $$\alpha_{ij} >= 0,  \alpha_{ij} = \sum_{j=1}^{Tx} \alpha_{ij} = 1$$ </p>
 Where,
-
-$$ e_{ij} = a(s_{i-1}, h_j)$$
+<p align="center"> $$e_{ij} = a(s_{i-1}, h_j)$$ </p>
 
 function $$a$$ is a simple 1 layer feed-forward neural network.
 
@@ -111,6 +108,8 @@ The decoder is also composed of a stack of N= 6 identical layers. In addition to
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/t8.png)
 {: refdef}
+<br>
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Encoder-Decoder Overview</a></p>
 
 In general, all the encoders are very similar with the same architecture in which there are two layers: Self-attention and a Feed Forward Neural Network. Individual encoder-decoder architecture is shown below:
 {: .text-justify}
@@ -150,6 +149,7 @@ In this work, $$h= 8$$ parallel attention layers, or heads. For each of these we
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/11.png)
 {: refdef}
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Encoder Block</a></p>
 * For the first encoder input will be word embeddings and output is fed as input to the next encoder. 
 <!-- .After embedding the words in our input sequence, each of them flows through each of the two layers of the encoder.  -->
 * In the above encoder architecture as you can see each input is flowing through its path, but they have their dependencies in the self-attention layer. Whereas the feed-forward network part has no such dependencies, because of which several paths can be executed in parallel while going through the feed-forward network.
@@ -159,6 +159,8 @@ In this work, $$h= 8$$ parallel attention layers, or heads. For each of these we
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/t12.png)
 {: refdef}
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Self-Attention</a></p>
+
 * We create vectors query(q), key(k) and value(v) by multiplying input vectors with matrices Wq, Wk and Wv respectively and these matrices are updated during the training process and these vectors are of smaller dimension (dim=64) as compared to input embeddings dimension (dim=512).
 {: .text-justify}
 
@@ -168,6 +170,8 @@ In this work, $$h= 8$$ parallel attention layers, or heads. For each of these we
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/t13.png)
 {: refdef}
+<br>
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Encoder-Decoder Overview</a></p>
 
 * In the next step we divide the scores by 8 (square root of the dim=64, it's the default score as per the paper),  then we pass the normalized score to softmax to generate output between 0 to 1. So that we can represent the percentage of attention that each token contributes w.r.t. to the targeted word. As we can see in the above figure. the targeted words softmax score will be very high as compared to the rest of the words.
 {: .text-justify}
@@ -189,6 +193,7 @@ In this work, $$h= 8$$ parallel attention layers, or heads. For each of these we
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/t14.gif)
 {: refdef}
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Decoder Block</a></p>
 
 * Similar to the encoder’s input, we embed and add positional encoding to the decoder inputs.
 * In the First masked self-attention layer, the decoder pays attention to the only previous position in the output sequence, because we generate the output sequence one by one in the decoder stack. So we have only previous output tokens to focus on and we also mask the future output positions by -inf.
@@ -210,6 +215,7 @@ Multi-head attention is nothing but performing the self-attention calculation mu
 {:refdef: style="text-align: center;"}
 ![transormer_attention_mechanism]({{site.baseurl}}/assets/img/t16.png)
 {: refdef}
+<p align="center"><a href="http://jalammar.github.io/illustrated-transformer/">Multi-Head Self-Attention</a></p>
 
 Now that we’ve eight different vectors for Z, but as we have seen in the architecture that we get one representation per tokens as the end output of the encoder. So to get a single vector as the output $$z$$, we concatenate all the eight different $$z$$ vectors and then we multiply it by a weight matrix $$W_0$$ Which also gets updated during the model training process.
 {: .text-justify}
@@ -233,7 +239,7 @@ As we have seen that the Multi-Head Attention is just several attention layers s
 {: refdef}
 
 # Conclusion and Further Readings
-This blog demonstrates that self-attention is a powerful and efficient way to replace RNN as a method of modeling dependencies. I highly recommend you to read the actual paper for further details on the hyperparameters and training settings that were necessary to achieve state-of-the-art results.
+This blog demonstrates that self-attention is a powerful and efficient way to replace RNN as a method of modeling dependencies. I highly recommend you to read the actual paper for further details on the hyperparameters and training settings that were necessary to achieve state-of-the-art results and also you can read Jay Alammar blog on <a href="http://jalammar.github.io/illustrated-transformer/"> The Illustrated Transformer</a>.
 {: .text-justify}
 
 # References
