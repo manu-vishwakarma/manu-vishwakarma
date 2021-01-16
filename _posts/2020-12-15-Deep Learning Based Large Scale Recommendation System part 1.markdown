@@ -1,4 +1,12 @@
-# Deep Learning Based Large Scale Recommendation System part 1 
+---
+layout: post
+title: Deep Learning Based Large Scale Recommendation System (part 1)
+date: 2020-12-15 00:00:00 +0300
+description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
+img: rec_sys_main_img.jpg # i-rest.jpg # Add image post (optional)
+fig-caption: # Add figcaption (optional)
+tags: [Recommendation, Deep Learning, Ranking]
+---
 
 Improving the quality of recommendations is one of the major focus of recommendations systems used worldwide. Capturing the user behavior in better way is one of the directions. Even with the best of the algorithm, we can’t capture user’s entire behavior and also this behavior changes over time. Till now, there are models with very limited understanding in specific domains like machine learning, deep learning, NLP, vision, etc.  Evidence from just one or two methods is not sufficient to continuously evolve the system; there is requirement of systematic ways to combine signals from different methods/models.  
 <br>
