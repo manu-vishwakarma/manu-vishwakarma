@@ -14,7 +14,7 @@ To solve this ranking problem, we use the concept of “Learn to rank” method
 {:refdef: style="text-align: center; "}
 ![Recommendation System]({{site.baseurl}}/assets/img/rc_fig2.png)
 {: refdef}
-<p align="center">Fig.2 Recommendation system overview</a></p>
+<p align="center">Fig.1 Recommendation system overview</p>
 <br>
 **Note:** Scoring and ranking are representing ranking candidates here.
 
@@ -26,7 +26,7 @@ Candidate generation is the process of generating candidate items from various a
 {:refdef: style="text-align: center; "}
 ![Recommendation System]({{site.baseurl}}/assets/img/rc_fig1.png)
 {: refdef}
-<p align="center">Fig.1<a href="https://developers.google.com/machine-learning/recommendation/dnn/scoring"> Candidates generation methods</a></p>
+<p align="center">Fig.2<a href="https://developers.google.com/machine-learning/recommendation/dnn/scoring"> Candidates generation methods</a></p>
 <br>
 
 Let's start by first understanding why we need ranking model in the first place and then later we'll formulate the problem statement for our ranking candidate problem.
