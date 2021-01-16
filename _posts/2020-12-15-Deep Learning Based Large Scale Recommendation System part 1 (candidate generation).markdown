@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deep Learning Based Large Scale Recommendation System (part 1)
+title: Deep Learning Based Large Scale Recommendation System part 1 (Candidate Generation)
 date: 2020-12-15 00:00:00 +0300
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: rec_sys_main_img.png # i-rest.jpg # Add image post (optional)
