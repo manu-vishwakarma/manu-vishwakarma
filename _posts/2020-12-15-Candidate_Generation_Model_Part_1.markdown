@@ -127,3 +127,8 @@ At serving time to make very quick predictions in milliseconds, we must compute 
 
 ![Serving Phase]({{site.baseurl}}/assets/img/next_watch_prediction_fig3.png)
 <br> 
+
+# References
+ * <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"> Deep Neural Networks for YouTube Recommendations</a> 
+ <br>
+ * <a href="https://developers.google.com/machine-learning/recommendation"> Recommendation System</a>
