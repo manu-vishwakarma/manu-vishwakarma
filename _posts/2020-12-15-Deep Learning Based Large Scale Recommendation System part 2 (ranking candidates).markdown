@@ -131,7 +131,6 @@ The model structure is quite similar to the candidate generation model structure
 ## **Serving:**
 Given N candidates based on their feature model will try to predict the expected watch time on each candidates and we can use this scores to rank these candidates and serve to the final user.
 
-References: 
 # References
  * <a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf"> Deep Neural Networks for YouTube Recommendations</a> 
  <br>
