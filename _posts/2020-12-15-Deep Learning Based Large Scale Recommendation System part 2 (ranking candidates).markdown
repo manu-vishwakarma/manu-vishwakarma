@@ -18,7 +18,7 @@ To solve this ranking problem, we use the concept of “Learn to rank” method
 <br>
 **Note:** Scoring and ranking are representing ranking candidates here.
 
-In the previous blog we discussed about the candidate generation method in detail, If you have not read it, I will highly recommend you guys to first read that blog so that you can better understand the big picture. Following is the short explanation for it.
+In the previous blog we discussed about the <a href="https://manu-vishwakarma.github.io/manu-vishwakarma/Deep-Learning-Based-Large-Scale-Recommendation-System-part-1-(candidate-generation)/"> candidate generation </a> method in detail, If you have not read it, I will highly recommend you guys to first read that blog so that you can better understand the big picture. Following is the short explanation for it.
 
 ## **Candidate Generation:** 
 Candidate generation is the process of generating candidate items from various algorithms. The purpose is to get a wide variety of items, which user may like. Thus, providing an opportunity to present a diverse set of items to user. In Candidate generation, we can generate list of candidates from various Candidate generation methods from both contents based filtering and collaborative filtering methods. 
