@@ -26,7 +26,7 @@ Followings are some of the biggest challenges faced by internet based company in
 Noise could be in any form e.g., unstructured metadata, user's external historical behavior that are hard to detect. In-order to generate the engaging and personalized recommendations, we can divide our problem in two separate problems: 
 
     1. Candidate Generation 
-    2. Ranking Candidates 
+    2. <a href="https://manu-vishwakarma.github.io/manu-vishwakarma/Deep-Learning-Based-Large-Scale-Recommendation-System-part-2-(ranking-candidates)/">Ranking Candidates</a> 
 
 **Note:** Candidates mean items which are more likely to be recommended to a given user by the recommendation methods. 
 
@@ -44,7 +44,7 @@ Noise could be in any form e.g., unstructured metadata, user's external historic
 
 Remember from our large content corpus using candidate generation method we are only selecting the most likely content for user (hundreds of items out of N) and using scoring models we can sort these content and select only top K items that user is most likely to enjoy. 
  
-We will limit this blog only till the candidate generation part, the ranking model part will be explored in part-2 of this blog. 
+We will limit this blog only till the candidate generation part, the<a href="https://manu-vishwakarma.github.io/manu-vishwakarma/Deep-Learning-Based-Large-Scale-Recommendation-System-part-2-(ranking-candidates)/"> ranking model </a>part will be explored in part-2 of this blog. 
 Let's now move further and define the problem statement for our candidate generation model. Here our objective is to extract the personalized engaging content for each user. 
 
 ## **Candidate Generation Problem formulation:**
