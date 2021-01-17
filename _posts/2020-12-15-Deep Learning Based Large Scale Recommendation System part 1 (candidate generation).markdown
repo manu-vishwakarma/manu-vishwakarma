@@ -26,7 +26,7 @@ Followings are some of the biggest challenges faced by internet based company in
 Noise could be in any form e.g., unstructured metadata, user's external historical behavior that are hard to detect. In-order to generate the engaging and personalized recommendations, we can divide our problem in two separate problems: 
 
     1. Candidate Generation 
-    2. <a href="https://manu-vishwakarma.github.io/manu-vishwakarma/Deep-Learning-Based-Large-Scale-Recommendation-System-part-2-(ranking-candidates)/">Ranking Candidates</a> 
+    2. <a href="https://manu-vishwakarma.github.io/manu-vishwakarma/Deep-Learning-Based-Large-Scale-Recommendation-System-part-2-(ranking-candidates)/"> Ranking Candidates </a> 
 
 **Note:** Candidates mean items which are more likely to be recommended to a given user by the recommendation methods. 
 
